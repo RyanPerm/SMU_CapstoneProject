@@ -11,8 +11,9 @@ function makePredictions() {
     var condition = $("#condition").val();
     var temperature = $("#temp").val();
     var wind_speed = $("#windSpeed").val();
-    var severity = $("#severity").val();
+    var pressure = $("#pressure").val();
     var humidity = $("#humid").val();
+    var road_side = $("#side").val();
 
 
     // create the payload

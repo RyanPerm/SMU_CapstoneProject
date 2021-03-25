@@ -44,16 +44,22 @@
                                 <label class="col-form-label" for="condition">Conditions</label>
                                 <select id="condition">
                                 <option value="0">Clear</option>
-                                <option value="1">Haze</option>
-                                <option value="2">Cloudy</option>
-                                <option value="3">Fog</option>
-                                <option value="4">Rain</option>
-                                <option value="0">Thunderstorm</option>
-                                <option value="5">Snow</option>
-                                <option value="6">Icey</option>
-                                
+                                <option value="1">Cloudy</option>
+                                <option value="2">Fog/Haze</option>
+                                <option value="3">Rain</option>
+                                <option value="4">Thunderstorm</option>
+                                <option value="5">Wintery Mix</option>                                                                                          
                             </select>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="side">Road Side</label>
+                                <select id="side">
+                                <option value="0">Right</option>
+                                <option value="1">Left</option>                                                               
+                            </select>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-form-label" for="temp">Temperature</label>
                                 <input type="text" class="form-control" value="70" id="temp">
@@ -69,12 +75,10 @@
                                 <input type="text" class="form-control" value="2" id="windSpeed">
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label" for="severity">Severity</label>
+                                <label class="col-form-label" for="severity">Road Type</label>
                                 <select id="severity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <option value="1">Street</option>
+                                <option value="2">Highway</option>                                
                             </select>
                             </div>
                             <div class="form-group">
@@ -85,6 +89,10 @@
                                 <option value="Q">Queenstown</option>
                                 <option value="S">Southampton</option> -->
                                 <!-- </select> -->
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="pressure">Pressure</label>
+                                <input type="text" class="form-control" value="30" id="temp">
                             </div>
                         </div>
                     </div>
