@@ -8,39 +8,65 @@ class ModelHelper():
     def __init__(self):
         pass
 
-    def makePredictions(self, sex_flag, age, fare, familySize, pclass, embarked):
-        pclass_1 = 0
-        pclass_2 = 0
-        pclass_3 = 0
+    def makePredictions(self, distance, temperature, humidity, wind_speed, pressure, road_type, visibility, side, condition):  
 
-        embarked_c = 0
-        embarked_q = 0
-        embarked_s = 0
+        # Distance(mi) = distance
+        # Temperature(F) = temperature
+        # Humidity(%) = humidity
+        # Wind_Speed(mph) = wind_speed
+        # Pressure(in) = pressure
+        # Visibility(mi) = visibility
 
-        # parse pclass
-        if (pclass == 1):
-            pclass_1 = 1
-        elif (pclass == 2):
-            pclass_2 = 1
-        elif (pclass == 3):
-            pclass_3 = 1
+        Weather_Condition1_Clear = 0
+        Weather_Condition1_Cloudy = 0
+        Weather_Condition1_Fog_Haze = 0
+        Weather_Condition1_Rain = 0
+        Weather_Condition1_Thunder_Storm = 0
+        Weather_Condition1_Wintery_Mix = 0
+
+        Road_Type_Highway = 0
+        Road_Type_Street = 0
+
+        Side_R = 0
+        Side_L = 0
+
+        # parse Weather Condition
+        if (condition == "Clear"):
+            Weather_Condition1_Clear = 1
+        elif (condition == "Cloudy"):
+            Weather_Condition1_Cloudy = 1
+        elif (condition == "Fog/Haze"):
+            Weather_Condition1_Fog_Haze = 1
+        elif (condition == "Rain"):
+            Weather_Condition1_Rain = 1
+        elif (condition == "Thunderstorm"):
+            Weather_Condition1_Thunder_Storm = 1
+        elif (condition == "Wintery Mix"):
+            Weather_Condition1_Wintery_Mix = 1
         else:
             pass
 
-        # parse embarked
-        if (embarked == "C"):
-            embarked_c = 1
-        elif (embarked == "Q"):
-            embarked_q = 1
-        elif (embarked == "S"):
-            embarked_s = 1
+        # parse Road Type
+        if (road_type == "Street"):
+            Road_Type_Street = 1
+        elif (road_type == "Highway"):
+            Road_Type_Highway = 1
         else:
             pass
 
-        input_pred = [[sex_flag, age, fare, familySize, pclass_1, pclass_2, pclass_3, embarked_c, embarked_q, embarked_s]]
+         # parse Road Side
+        if (side == "Right"):
+            Side_R = 1
+        elif (side == "Left"):
+            Side_L = 1
+        else:
+            pass
+
+        input_pred = [[distance, temperature, humidity, wind_speed, pressure, Road_Type_Street, Road_Type_Highway, visibility, Side_L, Side_R, 
+        Weather_Condition1_Clear, Weather_Condition1_Cloudy, Weather_Condition1_Fog_Haze, Weather_Condition1_Rain, Weather_Condition1_Thunder_Storm, Weather_Condition1_Wintery_Mix]]
 
 
-        filename = 'finalized_model.sav'
+        filename = 'initial_model.sav'
         ada_load = pickle.load(open(filename, 'rb'))
 
         X = np.array(input_pred)
@@ -48,3 +74,29 @@ class ModelHelper():
         preds_singular = ada_load.predict(X)
 
         return preds_singular[0]
+
+
+
+        
+        # # Booleans
+        # Amenity = 0
+        # Bump = 0
+        # Crossing = 0
+        # Give_Way = 0
+        # Junction = 0
+        # No_Exit = 0
+        # Railway = 0
+        # Roundabout = 0
+        # Station = 0
+        # Stop = 0
+        # Traffic_Calming = 0
+        # Traffic_Signal = 0
+        # Turning_Loop = 0
+
+        # # Dummies
+        # Civil_Twilight_Day = 
+        # Civil_Twilight_Night = 
+        # Nautical_Twilight_Day = 
+        # Nautical_Twilight_Night = 
+        # Astronomical_Twilight_Day = 
+        # Astronomical_Twilight_Night = 
