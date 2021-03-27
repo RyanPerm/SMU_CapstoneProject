@@ -18,11 +18,11 @@ function makePredictions() {
 
     // create the payload
     var payload = {
-        "condition": condition,
-        "temp": temp,
-        "windSpeed": windSpeed,
-        "severity": severity,
-        "humid": humid
+        // "condition": condition,
+        // "temp": temp,
+        // "windSpeed": windSpeed,
+        // "severity": severity,
+        // "humid": humid
     }
 
     // Perform a POST request to the query URL

@@ -8,14 +8,33 @@ class ModelHelper():
     def __init__(self):
         pass
 
-    def makePredictions(self, distance, temperature, humidity, wind_speed, pressure, road_type, visibility, side, condition):  
+    def makePredictions(self, distance, visibility, side, condition, temperature, wind_speed, humidity, pressure, road_type):  
 
-        # Distance(mi) = distance
-        # Temperature(F) = temperature
-        # Humidity(%) = humidity
-        # Wind_Speed(mph) = wind_speed
-        # Pressure(in) = pressure
-        # Visibility(mi) = visibility
+        # Booleans
+        Amenity = 0
+        Bump = 0
+        Crossing = 0
+        Give_Way = 0
+        Junction = 0
+        No_Exit = 0
+        Railway = 0
+        Roundabout = 0
+        Station = 0
+        Stop = 0
+        Traffic_Calming = 0
+        Traffic_Signal = 0
+
+        # Dummies
+        Sunrise_Sunset_Day = 0
+        Sunrise_Sunset_Night = 0
+        Civil_Twilight_Day = 0
+        Civil_Twilight_Night = 0
+        Nautical_Twilight_Day = 0
+        Nautical_Twilight_Night = 0
+        Astronomical_Twilight_Day = 0
+        Astronomical_Twilight_Night = 0
+
+        precipitation = 0
 
         Weather_Condition1_Clear = 0
         Weather_Condition1_Cloudy = 0
@@ -62,11 +81,14 @@ class ModelHelper():
         else:
             pass
 
-        input_pred = [[distance, temperature, humidity, wind_speed, pressure, Road_Type_Street, Road_Type_Highway, visibility, Side_L, Side_R, 
-        Weather_Condition1_Clear, Weather_Condition1_Cloudy, Weather_Condition1_Fog_Haze, Weather_Condition1_Rain, Weather_Condition1_Thunder_Storm, Weather_Condition1_Wintery_Mix]]
+        input_pred = [[distance, temperature, humidity, pressure, visibility, wind_speed, precipitation, Amenity, Bump, Crossing,
+        Give_Way, Junction, No_Exit, Railway, Roundabout, Station, Stop, Traffic_Calming, Traffic_Signal, Side_L, Side_R, Weather_Condition1_Clear,
+        Weather_Condition1_Cloudy, Weather_Condition1_Fog_Haze, Weather_Condition1_Rain, Weather_Condition1_Thunder_Storm, Weather_Condition1_Wintery_Mix,
+        Sunrise_Sunset_Day, Sunrise_Sunset_Night, Civil_Twilight_Day, Civil_Twilight_Night, Nautical_Twilight_Day, Nautical_Twilight_Night, Astronomical_Twilight_Day, 
+        Astronomical_Twilight_Night, Road_Type_Highway, Road_Type_Street]]
 
 
-        filename = 'initial_model.sav'
+        filename = 'static/models/initial_model.sav'
         ada_load = pickle.load(open(filename, 'rb'))
 
         X = np.array(input_pred)
@@ -78,25 +100,3 @@ class ModelHelper():
 
 
         
-        # # Booleans
-        # Amenity = 0
-        # Bump = 0
-        # Crossing = 0
-        # Give_Way = 0
-        # Junction = 0
-        # No_Exit = 0
-        # Railway = 0
-        # Roundabout = 0
-        # Station = 0
-        # Stop = 0
-        # Traffic_Calming = 0
-        # Traffic_Signal = 0
-        # Turning_Loop = 0
-
-        # # Dummies
-        # Civil_Twilight_Day = 
-        # Civil_Twilight_Night = 
-        # Nautical_Twilight_Day = 
-        # Nautical_Twilight_Night = 
-        # Astronomical_Twilight_Day = 
-        # Astronomical_Twilight_Night = 

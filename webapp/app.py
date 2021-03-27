@@ -17,13 +17,13 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
-# Route to render index.html template
+# Route to render indexml.html template
 @app.route("/")
 def home():
     # Return template and data
-    return render_template("index.html")
+    return render_template("indexml.html")
 
-@app.route("/makePredictions") # methods=["POST"]
+@app.route("/makePredictions", methods=["POST"]) # 
 def makePredictions():
 
     # dummy data
@@ -32,15 +32,11 @@ def makePredictions():
     temperature = 52.0
     humidity = 35.0
     wind_speed = 8.2
-    pressure = 21.00
+    pressure = 10.00
     road_type = "Highway"
     visibility = 1.0
     side = "Left"
     condition = "Thunderstorm"
-
-
-
-
 
     # content = request.json["data"]
 
@@ -55,7 +51,7 @@ def makePredictions():
 
     prediction = modelHelper.makePredictions(distance, visibility, side, condition, temperature, wind_speed, humidity, pressure, road_type)
     print(prediction)
-    return(jsonify({"ok": True, "prediction": str(prediction)}))
+    return(jsonify({"Severe": True, "prediction": str(prediction)}))
 
 ####################################
 # ADD MORE ENDPOINTS
