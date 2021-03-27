@@ -28,30 +28,32 @@ def makePredictions():
 
     # dummy data
 
-    distance = .1
-    temperature = 52.0
-    humidity = 35.0
-    wind_speed = 8.2
-    pressure = 10.00
-    road_type = "Highway"
-    visibility = 1.0
-    side = "Left"
-    condition = "Thunderstorm"
+    # distance = .1
+    # temperature = 52.0
+    # humidity = 80
+    # wind_speed = 8.2
+    # pressure = 2.00
+    # road_type = "Highway"
+    # visibility = 1.0
+    # side = "Left"
+    # condition = "Thunderstorm"
 
-    # content = request.json["data"]
+    content = request.json["data"]
 
-    # # parse
-    # condition = int(content["condition"])
-    # temperature = float(content["temperature"])
-    # wind_speed = float(content["wind_speed"])
-    # humidity = int(content["humidity"])
-    # pressure = int(content["pressure"])
-    # road_type = content["type"]
-    # side = content["side"]
+    # parse
+    distance = float(content["distance"])
+    visibility = float(content["visibility"])
+    condition = int(content["condition"])
+    temperature = float(content["temperature"])
+    wind_speed = float(content["wind_speed"])
+    humidity = float(content["humidity"])
+    pressure = float(content["pressure"])
+    road_type = content["type"]
+    side = content["side"]
 
     prediction = modelHelper.makePredictions(distance, visibility, side, condition, temperature, wind_speed, humidity, pressure, road_type)
     print(prediction)
-    return(jsonify({"Severe": True, "prediction": str(prediction)}))
+    return(jsonify({"ok": True, "prediction": prediction}))
 
 ####################################
 # ADD MORE ENDPOINTS

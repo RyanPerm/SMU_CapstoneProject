@@ -95,7 +95,28 @@ class ModelHelper():
         preds = ada_load.predict_proba(X)
         preds_singular = ada_load.predict(X)
 
-        return preds_singular[0]
+        # Model 2
+        filename_mild = 'static/models/mild_model.sav'
+        ada_load_mild = pickle.load(open(filename_mild, 'rb'))
+        preds_mild = ada_load_mild.predict_proba(X)
+
+        preds_mild_final = preds[0][0]*preds_mild[0]
+
+                # Model 2
+        filename_severe = 'static/models/severe_model.sav'
+        ada_load_severe = pickle.load(open(filename_severe, 'rb'))
+        preds_severe = ada_load_severe.predict_proba(X)
+
+        preds_severe_final = preds[0][1]*preds_severe[0]
+
+
+        all_preds = np.concatenate([preds_mild_final , preds_severe_final])
+        returnval = np.argmax(all_preds) + 1
+
+
+
+        return {"point": str(returnval), "proba": all_preds.tolist()}
+
 
 
 
