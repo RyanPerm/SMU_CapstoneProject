@@ -47,7 +47,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Visualizations</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="indextab1.html">Tableau 1</a>
-                            <a class="dropdown-item" href="indextab2.html">Tableau 2</a>
+                            <a class="dropdown-item" href="indextab2.html">Accident Severity by Date and County</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -64,7 +64,7 @@
 
 
     <hr style="color:lightgray; border-width: 3px;">
-    <div class="container">
+    <div class="container-fluid">
         <div class="card border-primary mb-3" style="max-width: 20rem;">
             <div class="card-header">Filters</div>
             <div class="card-body">
@@ -83,6 +83,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-form-label" for="road_type">Road Type</label>
+                            <select id="road_type">
+                                <option value="1">Street</option>
+                                <option value="2">Highway</option>                                
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-form-label" for="side">Road Side</label>
                             <select id="side">
                                 <option value="0">Right</option>
@@ -94,19 +102,17 @@
                             <label class="col-form-label" for="temp">Temperature(F)</label>
                             <input type="text" class="form-control" value="70" id="temp">
                         </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="pressure">Visibility(mi)</label>
+                            <input type="text" class="form-control" value="10" id="visibility">
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-form-label" for="windSpeed">Wind Speed(mph)</label>
                             <input type="text" class="form-control" value="2" id="windSpeed">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="road_type">Road Type</label>
-                            <select id="road_type">
-                                <option value="1">Street</option>
-                                <option value="2">Highway</option>                                
-                            </select>
-                        </div>
+
                         <div class="form-group">
                             <label class="col-form-label" for="humid">Humidity(%)</label>
                             <input type="text" class="form-control" value="10" id="humid">
@@ -115,15 +121,13 @@
                             <label class="col-form-label" for="pressure">Pressure(in)</label>
                             <input type="text" class="form-control" value="30" id="pressure">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="pressure">Visibility(mi)</label>
-                            <input type="text" class="form-control" value="10" id="visibility">
-                        </div>
+
                         <div class="form-group">
                             <label class="col-form-label" for="pressure">Length of Accident(mi)</label>
                             <input type="text" class="form-control" value=".01" id="distance">
                         </div>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">

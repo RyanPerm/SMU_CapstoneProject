@@ -26,17 +26,6 @@ def home():
 @app.route("/makePredictions", methods=["POST"]) # 
 def makePredictions():
 
-    # dummy data
-
-    # distance = .1
-    # temperature = 52.0
-    # humidity = 80
-    # wind_speed = 8.2
-    # pressure = 2.00
-    # road_type = "Highway"
-    # visibility = 1.0
-    # side = "Left"
-    # condition = "Thunderstorm"
 
     content = request.json["data"]
 
