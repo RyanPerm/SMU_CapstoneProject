@@ -1,7 +1,7 @@
 var table_data = the_data;
 
 $(document).ready(function() {
-    console.log(table_data);
+    $('#severity-table').DataTable();
     buildFilters();
     buildTable();
 
@@ -27,13 +27,14 @@ function buildFilters() {
 }
 
 function resetFilters() {
-    $("#Start_Time").val("");
-    $("#Start_Time").text("");
+    // $("#Start_Time").val("");
+    // $("#Start_Time").text("");
 
-    $("#county").val("");
-    $("#county").text("");
+    $("#County").val("");
+    $("#County").text("");
 
-    $("#severity").val("");
+    $("#Severity").val("");
+    // $("#Severity").text("");
 }
 
 function buildUniqueFilterHelper(colName, filterID) {
@@ -45,16 +46,16 @@ function buildUniqueFilterHelper(colName, filterID) {
     });
 }
 
-function buildTable(data) {
-    var dateFilter = $("#datetime").val(); //gets input value to filter
-    var countyFilter = $("#county").val();
-    var severityFilter = $("#severity").val();
+function buildTable() {
+    // var dateFilter = $("#datetime").val(); //gets input value to filter
+    var countyFilter = $("#County").val();
+    var severityFilter = $("#Severity").val();
 
     //apply filters
     var filteredData = table_data;
-    if (dateFilter) {
-        filteredData = filteredData.filter(row => Date.parse(row.datetime) === Date.parse(dateFilter));
-    }
+    // if (dateFilter) {
+    //     filteredData = filteredData.filter(row => Date.parse(row.datetime) === Date.parse(dateFilter));
+    // }
     if (countyFilter) {
         filteredData = filteredData.filter(row => row.countyFilter === countyFilter.toLowerCase());
     }
@@ -96,6 +97,7 @@ function buildTableString(the_data) {
 
     //redraw
     $("#severity-table").DataTable({
+        "pagingType": "full_numbers",
         dom: 'Bfrtip', //lbfrtip if you want the length changing thing
         buttons: [
             { extend: 'copyHtml5' },
